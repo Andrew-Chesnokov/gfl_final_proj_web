@@ -1,6 +1,6 @@
-package steps;
+package loginPage.steps;
 
-import pages.LoginPage;
+import loginPage.pages.LoginPage;
 
 public class LoginSteps {
     private LoginPage loginPage = new LoginPage();

@@ -1,7 +1,7 @@
-package tests;
+package loginPage.tests;
 
+import loginPage.steps.LoginStepsResult;
 import org.testng.annotations.Test;
-import steps.LoginStepsResult;
 
 public class LoginPageTest extends BaseLoginChromeTest {
 
