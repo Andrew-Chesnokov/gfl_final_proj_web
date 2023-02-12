@@ -1,8 +1,8 @@
-package pages;
+package loginPage.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import tests.BaseLoginChromeTest;
+import loginPage.tests.BaseLoginChromeTest;
 
 public abstract class  BasePage {
     protected WebDriver driver;
