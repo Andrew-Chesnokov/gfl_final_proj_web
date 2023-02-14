@@ -4,7 +4,7 @@ import loginPage.steps.LoginStepsResult;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class LoginPageTest extends BaseLoginChromeTest {
+public class LoginPageChromeTest extends BaseLoginChromeTest {
     @DataProvider(name = "testValidLoginData")
     public Object[][] testValidLoginData() {
         return new Object[][]{
@@ -24,13 +24,13 @@ public class LoginPageTest extends BaseLoginChromeTest {
 
     @Test(dataProvider = "testValidLoginData")
     public void testLoggingWithValidData(String username, String password) {
-        LoginStepsResult step = steps.loginIntoTheStore(username, password);
-        step.verifyThatMainPageIsOpened();
+        LoginStepsResult stepLogging = steps.loginIntoTheStore(username, password);
+        stepLogging.verifyThatMainPageIsOpened();
     }
 
     @Test(dataProvider = "testInvalidLoginData")
     public void testLoggingWithInvalidData(String username, String password) {
-        LoginStepsResult step = steps.loginIntoTheStore(username, password);
-        step.verifyThatValidationMessageIsReceived();
+        LoginStepsResult stepLogging = steps.loginIntoTheStore(username, password);
+        stepLogging.verifyThatValidationMessageIsReceived();
     }
 }

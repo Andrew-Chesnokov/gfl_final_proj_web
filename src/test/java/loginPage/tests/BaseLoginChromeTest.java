@@ -21,7 +21,7 @@ public class BaseLoginChromeTest {
     }
 
     @BeforeMethod
-    public void beforeClass() {
+    public void beforeMethod() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to("https://www.saucedemo.com/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -30,7 +30,7 @@ public class BaseLoginChromeTest {
     }
 
     @AfterMethod
-    public void afterClass() {
+    public void afterMethod() {
         driver.quit();
     }
 }
