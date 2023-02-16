@@ -21,11 +21,10 @@ public class AllItemsPageResult extends BasePage {
     WebElement shoppingCartHeader;
     @FindBy(xpath = "//*[@id=\"react-root\"]/div/div/div[2]/header/div/div/div/div/div[1]/h1/a/div")
     WebElement twitterLogo;
-    @FindBy(xpath = "//*[@id=\"mount_0_0_a1\"]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[3]/div/div/div[1]/div/div/span")
+    @FindBy(xpath = "//*[@id=\"login_form\"]/div[2]/div[3]")
     WebElement facebookLogo;
     @FindBy(xpath = "//*[@id=\"organization_guest_contextual-sign-in\"]/div/section/main/div")
     WebElement linkedinMessage;
-    WebDriverWait wait;
 
     public AllItemsPageResult() {
         super();

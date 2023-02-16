@@ -10,7 +10,7 @@ public class AllItemsPageTest extends BaseParametersForTest {
         allItemsStepsResult.verifyThatTwitterLogoIsDisplayed();
     }
 
-    @Test(priority = 1,enabled = false,groups = {"AllItemsPageTest"})
+    @Test(priority = 1,enabled = true,groups = {"AllItemsPageTest"})
     public void testOfFacebookLinkInFooter() {
         AllItemsStepsResult allItemsStepsResult = allItemsSteps.openFacebookLink();
         allItemsStepsResult.verifyThatFacebookLogoIsDisplayed();
