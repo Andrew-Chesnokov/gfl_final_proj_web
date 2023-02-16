@@ -1,6 +1,6 @@
-package loginPage.steps;
+package steps;
 
-import loginPage.pages.LoginPageResult;
+import pages.LoginPageResult;
 
 public class LoginStepsResult {
     private LoginPageResult loginPageResult = new LoginPageResult();
