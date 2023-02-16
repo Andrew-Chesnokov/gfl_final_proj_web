@@ -23,11 +23,16 @@ public class BaseParametersForTest {
         return driver;
     }
 
+    @BeforeMethod
+    public void beforeAllMethods() {
+        driver = DriverFactory.getDriver(Browser.CHROME);
+        driver.navigate().to("https://www.saucedemo.com/");
+    }
 
     @BeforeMethod(onlyForGroups = {"AllItemsPageTest"})
     public void beforeMethodForAllItems() {
-        driver = DriverFactory.getDriver(Browser.CHROME);
-        driver.navigate().to("https://www.saucedemo.com/");
+//        driver = DriverFactory.getDriver(Browser.CHROME);
+//        driver.navigate().to("https://www.saucedemo.com/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.loginIntoTheStore("standard_user", "secret_sauce");
@@ -37,8 +42,8 @@ public class BaseParametersForTest {
 
     @BeforeMethod(onlyForGroups = {"LoginPageTest"})
     public void beforeMethodForLoginPage() {
-        driver = DriverFactory.getDriver(Browser.CHROME);
-        driver.navigate().to("https://www.saucedemo.com/");
+//        driver = DriverFactory.getDriver(Browser.CHROME);
+//        driver.navigate().to("https://www.saucedemo.com/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         steps = new LoginSteps();

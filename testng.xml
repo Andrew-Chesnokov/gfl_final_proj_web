@@ -1,0 +1,13 @@
+<suite name="Website">
+    <test name="LoginPage">
+        <classes>
+            <!--            <class name="tests.BaseParametersForTest"/>-->
+            <class name="tests.LoginPageTest"/>
+        </classes>
+    </test>
+    <test name="AllItemsPage">
+        <classes>
+            <class name="tests.AllItemsPageTest"/>
+        </classes>
+    </test>
+</suite>
