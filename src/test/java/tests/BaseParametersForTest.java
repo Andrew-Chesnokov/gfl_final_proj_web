@@ -9,6 +9,7 @@ import steps.AllItemsSteps;
 import steps.LoginSteps;
 import utils.Browser;
 import utils.DriverFactory;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -26,7 +27,7 @@ public class BaseParametersForTest {
     @BeforeMethod
     public void beforeAllMethods() {
         driver = DriverFactory.getDriver(Browser.CHROME);
-        driver.navigate().to("https://www.saucedemo.com/");
+        driver.navigate().to(PropertyReader.getInstance().getURL());
     }
 
     @BeforeMethod(onlyForGroups = {"AllItemsPageTest"})
@@ -39,7 +40,6 @@ public class BaseParametersForTest {
 
         allItemsSteps = new AllItemsSteps();
     }
-
     @BeforeMethod(onlyForGroups = {"LoginPageTest"})
     public void beforeMethodForLoginPage() {
 //        driver = DriverFactory.getDriver(Browser.CHROME);
