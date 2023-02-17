@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-
 import java.time.Duration;
 
 
@@ -25,9 +24,22 @@ public class AllItemsPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"page_wrapper\"]/footer/ul/li[3]")
     WebElement linkedinLinkInFooter;
 
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement sauceLabsBackPackAddToCartButton;
+    @FindBy(id = "remove-sauce-labs-backpack")
+    WebElement sauceLabsBackPackRemoveToCartButton;
 
     public AllItemsPage() {
         super();
+    }
+
+    public void clickSauceLabsBackPackAddToCartButton() {
+        sauceLabsBackPackAddToCartButton.click();
+        new WebDriverWait(driver,Duration.ofSeconds(2));
+    }
+    public void clickSauceLabsBackPackRemoveToCartButton() {
+        sauceLabsBackPackRemoveToCartButton.click();
+        new WebDriverWait(driver,Duration.ofSeconds(2));
     }
 
     public void callBurgerMenu() {

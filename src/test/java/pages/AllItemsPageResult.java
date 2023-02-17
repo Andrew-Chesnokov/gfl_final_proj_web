@@ -6,12 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertyReader;
 
 
 import java.time.Duration;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class AllItemsPageResult extends BasePage {
@@ -25,6 +27,10 @@ public class AllItemsPageResult extends BasePage {
     WebElement facebookLogo;
     @FindBy(xpath = "//*[@id=\"organization_guest_contextual-sign-in\"]/div/section/main/div")
     WebElement linkedinMessage;
+    @FindBy(xpath = "//span[text()='1']")
+    WebElement shoppingCartCounter;
+    @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]")
+    WebElement shoppingCartContainer;
 
     public AllItemsPageResult() {
         super();
@@ -34,7 +40,7 @@ public class AllItemsPageResult extends BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         try {
-            driver.get("https://www.saucedemo.com/");
+            driver.get(PropertyReader.getInstance().getURL());
             Thread.sleep(3000);
 
             String window1 = driver.getWindowHandle();
@@ -56,6 +62,14 @@ public class AllItemsPageResult extends BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void assertThatShoppingCartCounterIsDisplayed() {
+        assertThat(shoppingCartCounter.isDisplayed()).isTrue();
+    }
+
+    public void assertThatShoppingCartCounterIsNotDisplayed(){
+        assertThat(shoppingCartContainer.isDisplayed()).isTrue();
     }
 
     public void assertThatBurgerMenuIsOpened() {

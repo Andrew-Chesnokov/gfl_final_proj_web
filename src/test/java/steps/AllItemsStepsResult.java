@@ -5,6 +5,14 @@ import pages.AllItemsPageResult;
 public class AllItemsStepsResult {
     private AllItemsPageResult allItemsPageResult = new AllItemsPageResult();
 
+    public void verifyThatShoppingCartCounterIsDisplayed(){
+        allItemsPageResult.assertThatShoppingCartCounterIsDisplayed();
+    }
+
+    public void verifyThatShoppingCartCounterIsRemoved(){
+        allItemsPageResult.assertThatShoppingCartCounterIsNotDisplayed();
+    }
+
     public void verifyThatBurgerMenuIsOpened() {
         allItemsPageResult.assertThatBurgerMenuIsOpened();
     }
