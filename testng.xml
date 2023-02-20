@@ -1,7 +1,6 @@
 <suite name="GFLFinalProject">
     <test name="LoginPage">
         <classes>
-            <!--            <class name="tests.BaseParametersForTest"/>-->
             <class name="tests.LoginPageTest"/>
         </classes>
     </test>
@@ -9,6 +8,11 @@
         <classes>
             <class name="tests.AllItemsPageTest"/>
             <class name="tests.ShoppingCartCounterTest"/>
+        </classes>
+    </test>
+    <test name="BurgerMenu">
+        <classes>
+            <class name="tests.BurgerMenuTest"/>
         </classes>
     </test>
 </suite>

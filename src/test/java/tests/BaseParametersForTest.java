@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import steps.AllItemsSteps;
+import steps.BurgerMenuSteps;
 import steps.LoginSteps;
 import utils.Browser;
 import utils.DriverFactory;
@@ -17,23 +18,14 @@ public class BaseParametersForTest {
 
     LoginSteps steps;
     AllItemsSteps allItemsSteps;
+    BurgerMenuSteps burgerMenuSteps;
 
     public static WebDriver getDriver() {
         return driver;
     }
 
-//    @BeforeClass(groups = {"ShoppingCartCounter"})
-//    public void beforeGroups() {
-//        driver = DriverFactory.getDriver(Browser.CHROME);
-//        driver.navigate().to(PropertyReader.getInstance().getURL());
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//        LoginSteps loginSteps = new LoginSteps();
-//        loginSteps.loginIntoTheStore("standard_user", "secret_sauce");
-//
-//        allItemsSteps = new AllItemsSteps();
-//    }
     @BeforeGroups(groups = {"ShoppingCartCounter"})
-    public void beforeShoppingCartTest(){
+    public void beforeShoppingCartTest() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -43,18 +35,19 @@ public class BaseParametersForTest {
         allItemsSteps = new AllItemsSteps();
     }
 
-    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest"})
+    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest","BurgerMenu"})
     public void beforeMethodDriverLaunch() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
     }
 
-    @BeforeMethod(onlyForGroups = {"AllItemsPageTest"})
+    @BeforeMethod(onlyForGroups = {"AllItemsPageTest","BurgerMenu"})
     public void beforeMethodForAllItems() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.loginIntoTheStore("standard_user", "secret_sauce");
 
+        burgerMenuSteps = new BurgerMenuSteps();
         allItemsSteps = new AllItemsSteps();
     }
 
@@ -65,7 +58,7 @@ public class BaseParametersForTest {
         steps = new LoginSteps();
     }
 
-    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest"})
+    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest","BurgerMenu"})
     public void afterMethod() {
         driver.quit();
     }
