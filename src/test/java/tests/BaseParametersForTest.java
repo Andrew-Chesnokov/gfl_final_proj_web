@@ -52,7 +52,6 @@ public class BaseParametersForTest {
 
         burgerMenuSteps = new BurgerMenuSteps();
         allItemsSteps = new AllItemsSteps();
-        sortingOnAllItemsPageSteps = new SortingOnAllItemsPageSteps();
     }
 
     @BeforeMethod(onlyForGroups = {"LoginPageTest"})

@@ -15,4 +15,14 @@ public class SortingOnAllItemsPageSteps {
         sortingOnAllItemsPage.clickOnNameAToZSortingOption();
         return new SortingOnAllItemsPageStepsResult();
     }
+
+    public SortingOnAllItemsPageStepsResult itemsDisplayedInLowToHighPriceOrder(){
+        sortingOnAllItemsPage.clickOnPriceLowToHighSortingOption();
+        return new SortingOnAllItemsPageStepsResult();
+    }
+
+    public SortingOnAllItemsPageStepsResult itemsDisplayedInHighToLowPriceOrder(){
+        sortingOnAllItemsPage.clickOnPriceHighToLowSortingOption();
+        return new SortingOnAllItemsPageStepsResult();
+    }
 }

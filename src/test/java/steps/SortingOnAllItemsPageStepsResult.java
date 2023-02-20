@@ -12,4 +12,12 @@ public class SortingOnAllItemsPageStepsResult {
     public void verifyThatItemsAreSortedInAToZOrder(){
         sortingOnAllItemsPageResult.assertThatTheItemsInAtoZOrder();
     }
+
+    public void verifyThatItemsAreSortedInLowToHighPriceOrder(){
+        sortingOnAllItemsPageResult.assertThatTheItemsInLowToHighPriceOrder();
+    }
+
+    public void verifyThatItemsAreSortedInHighToLowPriceOrder(){
+        sortingOnAllItemsPageResult.assertThatTheItemsInHighToLowPriceOrder();
+    }
 }

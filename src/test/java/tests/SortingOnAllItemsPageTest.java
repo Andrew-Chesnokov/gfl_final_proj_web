@@ -16,4 +16,16 @@ public class SortingOnAllItemsPageTest extends BaseParametersForTest{
         SortingOnAllItemsPageStepsResult sortingOnAllItemsPageStepsResult = sortingOnAllItemsPageSteps.itemsDisplayedInAtoZOrder();
         sortingOnAllItemsPageStepsResult.verifyThatItemsAreSortedInAToZOrder();
     }
+
+    @Test(groups = {"SortingOnAllItemsPage"})
+    public void testOfLowToHighPriceOrder(){
+        SortingOnAllItemsPageStepsResult sortingOnAllItemsPageStepsResult = sortingOnAllItemsPageSteps.itemsDisplayedInLowToHighPriceOrder();
+        sortingOnAllItemsPageStepsResult.verifyThatItemsAreSortedInLowToHighPriceOrder();
+    }
+
+    @Test(groups = {"SortingOnAllItemsPage"})
+    public void testOfHighToLowPriceOrder(){
+        SortingOnAllItemsPageStepsResult sortingOnAllItemsPageStepsResult = sortingOnAllItemsPageSteps.itemsDisplayedInHighToLowPriceOrder();
+        sortingOnAllItemsPageStepsResult.verifyThatItemsAreSortedInHighToLowPriceOrder();
+    }
 }
