@@ -6,6 +6,7 @@ import org.testng.annotations.*;
 import steps.AllItemsSteps;
 import steps.BurgerMenuSteps;
 import steps.LoginSteps;
+import steps.SortingOnAllItemsPageSteps;
 import utils.Browser;
 import utils.DriverFactory;
 import utils.PropertyReader;
@@ -19,12 +20,13 @@ public class BaseParametersForTest {
     LoginSteps steps;
     AllItemsSteps allItemsSteps;
     BurgerMenuSteps burgerMenuSteps;
+    SortingOnAllItemsPageSteps sortingOnAllItemsPageSteps;
 
     public static WebDriver getDriver() {
         return driver;
     }
 
-    @BeforeGroups(groups = {"ShoppingCartCounter"})
+    @BeforeGroups(groups = {"ShoppingCartCounter","SortingOnAllItemsPage"})
     public void beforeShoppingCartTest() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
@@ -33,15 +35,16 @@ public class BaseParametersForTest {
         loginSteps.loginIntoTheStore("standard_user", "secret_sauce");
 
         allItemsSteps = new AllItemsSteps();
+        sortingOnAllItemsPageSteps = new SortingOnAllItemsPageSteps();
     }
 
-    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest","BurgerMenu"})
+    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest", "BurgerMenu"})
     public void beforeMethodDriverLaunch() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
     }
 
-    @BeforeMethod(onlyForGroups = {"AllItemsPageTest","BurgerMenu"})
+    @BeforeMethod(onlyForGroups = {"AllItemsPageTest", "BurgerMenu"})
     public void beforeMethodForAllItems() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         LoginSteps loginSteps = new LoginSteps();
@@ -49,6 +52,7 @@ public class BaseParametersForTest {
 
         burgerMenuSteps = new BurgerMenuSteps();
         allItemsSteps = new AllItemsSteps();
+        sortingOnAllItemsPageSteps = new SortingOnAllItemsPageSteps();
     }
 
     @BeforeMethod(onlyForGroups = {"LoginPageTest"})
@@ -58,12 +62,12 @@ public class BaseParametersForTest {
         steps = new LoginSteps();
     }
 
-    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest","BurgerMenu"})
+    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest", "BurgerMenu"})
     public void afterMethod() {
         driver.quit();
     }
 
-    @AfterGroups(groups = {"ShoppingCartCounter"})
+    @AfterGroups(groups = {"ShoppingCartCounter","SortingOnAllItemsPage"})
     public void afterShoppingCartTest() {
         driver.quit();
     }

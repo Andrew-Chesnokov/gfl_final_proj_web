@@ -15,8 +15,6 @@ public class AllItemsPage extends BasePage {
     WebElement burgerMenu;
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]")
     WebElement shoppingCart;
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span")
-    WebElement sortingSelection;
     @FindBy(xpath = "//*[@id=\"page_wrapper\"]/footer/ul/li[1]")
     WebElement twitterLinkInFooter;
     @FindBy(xpath = "//*[@id=\"page_wrapper\"]/footer/ul/li[2]")
@@ -35,11 +33,12 @@ public class AllItemsPage extends BasePage {
 
     public void clickSauceLabsBackPackAddToCartButton() {
         sauceLabsBackPackAddToCartButton.click();
-        new WebDriverWait(driver,Duration.ofSeconds(2));
+        new WebDriverWait(driver, Duration.ofSeconds(2));
     }
+
     public void clickSauceLabsBackPackRemoveToCartButton() {
         sauceLabsBackPackRemoveToCartButton.click();
-        new WebDriverWait(driver,Duration.ofSeconds(2));
+        new WebDriverWait(driver, Duration.ofSeconds(2));
     }
 
     public void callBurgerMenu() {
@@ -50,11 +49,6 @@ public class AllItemsPage extends BasePage {
 
     public void redirectToCartPage() {
         shoppingCart.click();
-    }
-
-    // TODO:     Has to be List of elements...
-    public void sortingSelectionButton() {
-        sortingSelection.click();
     }
 
     public void twitterLinkInFooter() {

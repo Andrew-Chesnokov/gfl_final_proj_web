@@ -15,4 +15,9 @@
             <class name="tests.BurgerMenuTest"/>
         </classes>
     </test>
+   <test name="SortingOnAllItemsPage">
+       <classes>
+           <class name="tests.SortingOnAllItemsPageTest"/>
+       </classes>
+   </test>
 </suite>
