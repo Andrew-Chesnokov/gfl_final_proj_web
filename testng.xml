@@ -20,4 +20,9 @@
            <class name="tests.SortingOnAllItemsPageTest"/>
        </classes>
    </test>
+    <test name="ShoppingCartPage">
+        <classes>
+            <class name="tests.ShoppingCartPageTest"/>
+        </classes>
+    </test>
 </suite>

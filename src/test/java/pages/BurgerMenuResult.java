@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.testng.Assert.assertTrue;
 
 public class BurgerMenuResult extends BasePage {
-    @FindBy(xpath = "//*[@id=\"headerMainNav\"]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/header/div/div/div[1]")
     WebElement sauceLabsHeader;
 
     @FindBy(xpath = "//*[@id=\"user-name\"]")
@@ -25,7 +25,7 @@ public class BurgerMenuResult extends BasePage {
     }
 
     public void assertThatSauceLabsPageIsOpenedAfterClickingAboutButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"headerMainNav\"]")));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/header/div/div/div[1]")));
         assertThat(sauceLabsHeader.isDisplayed()).isTrue();
     }
 

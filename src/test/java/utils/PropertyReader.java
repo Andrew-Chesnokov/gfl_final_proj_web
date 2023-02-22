@@ -27,4 +27,8 @@ public class PropertyReader {
     public String getURL(){
         return properties.getProperty("url");
     }
+
+    public String getPassword(){
+        return properties.getProperty("password");
+    }
 }
