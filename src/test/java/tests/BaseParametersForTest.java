@@ -19,6 +19,7 @@ public class BaseParametersForTest {
     BurgerMenuSteps burgerMenuSteps;
     SortingOnAllItemsPageSteps sortingOnAllItemsPageSteps;
     ShoppingCartPageSteps shoppingCartPageSteps;
+    CheckoutProcedureSteps checkoutProcedureSteps;
 
     public static WebDriver getDriver() {
         return driver;
@@ -30,25 +31,26 @@ public class BaseParametersForTest {
         driver.navigate().to(PropertyReader.getInstance().getURL());
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         LoginSteps loginSteps = new LoginSteps();
-        loginSteps.loginIntoTheStore("standard_user", PropertyReader.getInstance().getPassword());
+        loginSteps.loginIntoTheStore(PropertyReader.getInstance().getStandardUser(), PropertyReader.getInstance().getPassword());
 
         shoppingCartPageSteps = new ShoppingCartPageSteps();
         allItemsSteps = new AllItemsSteps();
         sortingOnAllItemsPageSteps = new SortingOnAllItemsPageSteps();
     }
 
-    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest", "BurgerMenu"})
+    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest", "BurgerMenu","CheckoutProcedure"})
     public void beforeMethodDriverLaunch() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
     }
 
-    @BeforeMethod(onlyForGroups = {"AllItemsPageTest", "BurgerMenu"})
-    public void beforeMethodForAllItems() {
+    @BeforeMethod(onlyForGroups = {"AllItemsPageTest", "BurgerMenu","CheckoutProcedure"})
+    public void beforeMethodForAllItemsStandardUser() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         LoginSteps loginSteps = new LoginSteps();
-        loginSteps.loginIntoTheStore("standard_user", PropertyReader.getInstance().getPassword());
+        loginSteps.loginIntoTheStore(PropertyReader.getInstance().getStandardUser(), PropertyReader.getInstance().getPassword());
 
+        checkoutProcedureSteps = new CheckoutProcedureSteps();
         burgerMenuSteps = new BurgerMenuSteps();
         allItemsSteps = new AllItemsSteps();
     }
@@ -60,7 +62,7 @@ public class BaseParametersForTest {
         steps = new LoginSteps();
     }
 
-    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest", "BurgerMenu"})
+    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest", "BurgerMenu","CheckoutProcedure"})
     public void afterMethod() {
         driver.quit();
     }
@@ -73,7 +75,7 @@ public class BaseParametersForTest {
     @DataProvider(name = "testValidLoginData")
     public Object[][] testValidLoginData() {
         return new Object[][]{
-                {"standard_user", PropertyReader.getInstance().getPassword()},
+                {PropertyReader.getInstance().getStandardUser(), PropertyReader.getInstance().getPassword()},
                 {"problem_user", PropertyReader.getInstance().getPassword()},
                 {"performance_glitch_user", PropertyReader.getInstance().getPassword()}
         };

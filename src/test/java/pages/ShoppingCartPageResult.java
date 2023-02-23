@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.testng.Assert.assertTrue;
-import static org.testng.Assert.assertFalse;
 
 public class ShoppingCartPageResult extends BasePage {
     @FindBy(xpath = "//*[@id=\"item_4_title_link\"]/div")

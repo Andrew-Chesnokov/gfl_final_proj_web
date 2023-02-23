@@ -31,4 +31,11 @@ public class PropertyReader {
     public String getPassword(){
         return properties.getProperty("password");
     }
+
+    public String getStandardUser(){
+        return properties.getProperty("standard_user");
+    }
+    public String getProblemUser(){
+        return properties.getProperty("problem_user");
+    }
 }

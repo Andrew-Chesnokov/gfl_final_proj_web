@@ -20,7 +20,7 @@ public class AllItemsPageResult extends BasePage {
     WebElement sideBarMenu;
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]")
     WebElement shoppingCartHeader;
-    @FindBy(xpath = "//*[@id=\"react-root\"]/div/div/div[2]/header/div/div/div/div/div[1]/h1/a/div")
+    @FindBy(partialLinkText = "Sauce Labs")
     WebElement twitterLogo;
     @FindBy(xpath = "//*[@id=\"login_form\"]/div[2]/div[3]")
     WebElement facebookLogo;
@@ -81,6 +81,7 @@ public class AllItemsPageResult extends BasePage {
 
     public void assertThatTwitterLogoIsDisplayed() {
         switchToSecondTab();
+        new WebDriverWait(driver, Duration.ofSeconds(10));
         assertTrue(twitterLogo.isDisplayed());
     }
 

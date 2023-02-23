@@ -2,13 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
-public class ShoppingCartPage extends BasePage{
+public class ShoppingCartPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]")
     WebElement shoppingCartIcon;
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
@@ -25,26 +25,26 @@ public class ShoppingCartPage extends BasePage{
         super();
     }
 
-    public void removeBackpackFromTheList(){
+    public void removeBackpackFromTheList() {
         removeBackpackButton.click();
     }
 
-    public void redirectToAllItemsPage(){
+    public void redirectToAllItemsPage() {
         continueShoppingButton.click();
         new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
-    public void redirectToShoppingCartPage(){
+    public void redirectToShoppingCartPage() {
         shoppingCartIcon.click();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOf(shoppingCartHeader));
     }
 
-    public void addToCart(){
+    public void addToCart() {
         addToCartButtonForSauceLabsBackpack.click();
     }
 
-    public String nameOfTheProduct(){
+    public String nameOfTheProduct() {
         return itemNameBackpack.getText();
     }
 }
