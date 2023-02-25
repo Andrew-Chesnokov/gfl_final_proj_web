@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import pages.ProductPage;
 import steps.*;
 import utils.Browser;
 import utils.DriverFactory;
@@ -20,12 +21,13 @@ public class BaseParametersForTest {
     SortingOnAllItemsPageSteps sortingOnAllItemsPageSteps;
     ShoppingCartPageSteps shoppingCartPageSteps;
     CheckoutProcedureSteps checkoutProcedureSteps;
+    ProductPageSteps productPageSteps;
 
     public static WebDriver getDriver() {
         return driver;
     }
 
-    @BeforeGroups(groups = {"ShoppingCartCounter","SortingOnAllItemsPage","ShoppingCartPageProductIsAdded"})
+    @BeforeGroups(groups = {"ShoppingCartCounter", "SortingOnAllItemsPage", "ShoppingCartPageProductIsAdded", "ProductPage"})
     public void beforeShoppingCartTest() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
@@ -33,18 +35,19 @@ public class BaseParametersForTest {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.loginIntoTheStore(PropertyReader.getInstance().getStandardUser(), PropertyReader.getInstance().getPassword());
 
+        productPageSteps = new ProductPageSteps();
         shoppingCartPageSteps = new ShoppingCartPageSteps();
         allItemsSteps = new AllItemsSteps();
         sortingOnAllItemsPageSteps = new SortingOnAllItemsPageSteps();
     }
 
-    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest", "BurgerMenu","CheckoutProcedure"})
+    @BeforeMethod(onlyForGroups = {"LoginPageTest", "AllItemsPageTest", "BurgerMenu", "CheckoutProcedure"})
     public void beforeMethodDriverLaunch() {
         driver = DriverFactory.getDriver(Browser.CHROME);
         driver.navigate().to(PropertyReader.getInstance().getURL());
     }
 
-    @BeforeMethod(onlyForGroups = {"AllItemsPageTest", "BurgerMenu","CheckoutProcedure"})
+    @BeforeMethod(onlyForGroups = {"AllItemsPageTest", "BurgerMenu", "CheckoutProcedure"})
     public void beforeMethodForAllItemsStandardUser() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         LoginSteps loginSteps = new LoginSteps();
@@ -62,12 +65,12 @@ public class BaseParametersForTest {
         steps = new LoginSteps();
     }
 
-    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest", "BurgerMenu","CheckoutProcedure"})
+    @AfterMethod(onlyForGroups = {"AllItemsPageTest", "LoginPageTest", "BurgerMenu", "CheckoutProcedure"})
     public void afterMethod() {
         driver.quit();
     }
 
-    @AfterGroups(groups = {"ShoppingCartCounter","SortingOnAllItemsPage","ShoppingCartPageProductIsAdded"})
+    @AfterGroups(groups = {"ShoppingCartCounter", "SortingOnAllItemsPage", "ShoppingCartPageProductIsAdded", "ProductPage"})
     public void afterShoppingCartTest() {
         driver.quit();
     }

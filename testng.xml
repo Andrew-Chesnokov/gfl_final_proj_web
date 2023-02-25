@@ -30,4 +30,9 @@
             <class name="tests.CheckoutProcedureTest"/>
         </classes>
     </test>
+    <test name="ProductPage">
+        <classes>
+            <class name="tests.ProductPageTest"/>
+        </classes>
+    </test>
 </suite>

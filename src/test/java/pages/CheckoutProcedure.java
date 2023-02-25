@@ -17,8 +17,6 @@ public class CheckoutProcedure extends BasePage {
     WebElement checkoutButton;
     @FindBy(xpath = "//*[@class=\"checkout_info\"]")
     WebElement checkoutInfo;
-    @FindBy(xpath = "//*[@class=\"cart_list\"]")
-    WebElement productInCart;
     @FindBy(name = "cancel")
     WebElement cancelButton;
     @FindBy(id = "continue")
