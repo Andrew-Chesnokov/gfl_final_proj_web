@@ -10,13 +10,13 @@ import java.time.Duration;
 public class SortingOnAllItemsPage extends BasePage {
     @FindBy(xpath = "//*[@class='inventory_item_name']")
     WebElement inventoryItemNames;
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[1]")
+    @FindBy(xpath = "//*[@class='product_sort_container']/option[1]")
     WebElement aToz;
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[2]")
+    @FindBy(xpath = "//*[@class='product_sort_container']/option[2]")
     WebElement zToA;
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[3]")
+    @FindBy(xpath = "//*[@class='product_sort_container']/option[3]")
     WebElement lowToHigh;
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[4]")
+    @FindBy(xpath = "//*[@class='product_sort_container']/option[4]")
     WebElement highToLow;
 
     public SortingOnAllItemsPage() {
