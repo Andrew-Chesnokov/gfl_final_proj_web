@@ -24,7 +24,7 @@ public class AllItemsPageResult extends BasePage {
     WebElement twitter;
     @FindBy(xpath = "//*[@id=\"login_form\"]/div[2]/div[3]")
     WebElement facebookLogo;
-    @FindBy(xpath = "//*[@id=\"organization_guest_contextual-sign-in\"]/div/section/main/div")
+    @FindBy(xpath = "//h2[@id=\"organization_guest_contextual-sign-in-modal-header\"]")
     WebElement linkedinMessage;
     @FindBy(xpath = "//span[text()='1']")
     WebElement shoppingCartCounter;

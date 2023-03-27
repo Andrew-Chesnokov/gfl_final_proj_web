@@ -27,6 +27,12 @@ public class BaseParametersForTest {
         return driver;
     }
 
+    // Added for Chrome 111. version
+    @BeforeTest
+    public void beforeAllTests(){
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
+    }
+
     @BeforeGroups(groups = {"ShoppingCartCounter", "SortingOnAllItemsPage", "ShoppingCartPageProductIsAdded", "ProductPage"})
     public void beforeShoppingCartTest() {
         driver = DriverFactory.getDriver(Browser.CHROME);

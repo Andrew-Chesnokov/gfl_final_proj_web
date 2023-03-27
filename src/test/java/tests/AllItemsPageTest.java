@@ -17,7 +17,7 @@ public class AllItemsPageTest extends BaseParametersForTest {
     }
 
     @Test(priority = 1,groups = {"AllItemsPageTest"})
-    public void testOfLinkedinKinkInFooter() {
+    public void testOfLinkedinLinkInFooter() {
         AllItemsStepsResult allItemsStepsResult = allItemsSteps.openLinkedinLink();
         allItemsStepsResult.verifyThatLinkedinLogoIsDisplayed();
     }
